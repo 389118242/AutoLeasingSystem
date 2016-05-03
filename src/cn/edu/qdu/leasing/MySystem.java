@@ -9,11 +9,11 @@ public class MySystem {
 	
 	//初始化 motors数组
 	{
-		motors[0] = new Car("别克商务   ", 600);
-		motors[1] = new Car("宝马500i   ", 500);
-		motors[2] = new Car("别克林荫大道", 300);
-		motors[3] = new Bus("<=16座", 800);
-		motors[4] = new Bus(">16座", 1500);
+		motors[0] = new Car("别克商务   ", 600,"A001");
+		motors[1] = new Car("宝马500i   ", 500,"A002");
+		motors[2] = new Car("别克林荫大道", 300,"A003");
+		motors[3] = new Bus("<=16座", 800,"B001");
+		motors[4] = new Bus(">16座", 1500,"B002");
 	}
 
 	/**
@@ -43,10 +43,10 @@ public class MySystem {
 		System.out.println("\n-------------------------------------------");
 		if(selectCode<numOfCars){
 			Car car = (Car) motors[selectCode];
-			System.out.println("您租赁"+leaseDays+"天"+car.getType()+"轿车，需要支付的金额为："+totalRental);
+			System.out.println("您租赁"+leaseDays+"天"+car.getType()+"轿车，车牌号为"+car.getNumblePlate()+"，需要支付的金额为："+totalRental);
 		}else{
 			Bus bus = (Bus) motors[selectCode];
-			System.out.println("您租赁"+leaseDays+"天"+bus.getSeats()+"客车，需要支付的金额为："+totalRental);
+			System.out.println("您租赁"+leaseDays+"天"+bus.getSeats()+"客车，车牌号为"+bus.getNumblePlate()+"，需要支付的金额为："+totalRental);
 		}
 	}
 	
@@ -56,10 +56,10 @@ public class MySystem {
 	 */
 	private int askSelectCars() {
 		System.out.println("\n*********  轿车     *********");
-		System.out.println("编号\t类型 \t\t\t日租金");
+		System.out.println("编号\t类型 \t\t\t车牌号\t日租金");
 		for (int i = 0; i < numOfCars; i++) {
 			Car car = (Car) motors[i];
-			System.out.println(i + 1 + "\t" + car.getType() + "\t\t" + car.getDailyRental());
+			System.out.println(i + 1 + "\t" + car.getType() + "\t\t" + car.getNumblePlate()+"\t"+car.getDailyRental());
 		}
 		System.out.print("\n请输入您要租赁的轿车类型（相应的编号）：");
 		Scanner input = new Scanner(System.in);
@@ -72,10 +72,10 @@ public class MySystem {
 	 */
 	private int askSelectBuses() {
 		System.out.println("\n*********  客车     *********");
-		System.out.println("编号\t座数\t日租金");
+		System.out.println("编号\t座数\t车牌号\t日租金");
 		for (int i = numOfCars; i < numOfCars + numOfBuses; i++) {
 			Bus bus = (Bus) motors[i];
-			System.out.println(i + 1 - numOfCars + "\t" + bus.getSeats() + "\t" + bus.getDailyRental());
+			System.out.println(i + 1 - numOfCars + "\t" + bus.getSeats() + "\t" + bus.getNumblePlate()+"\t"+bus.getDailyRental());
 		}
 		System.out.print("\n请输入您要租赁的客车类型（相应的编号）：");
 		Scanner input = new Scanner(System.in);
