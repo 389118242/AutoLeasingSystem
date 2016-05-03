@@ -10,9 +10,8 @@ public class Car extends Motor {
 	 * @param dailyRental	Æû³µÈÕ×â½ð
 	 */
 	public Car(String type,double dailyRental,String numblePlate){
+		super(dailyRental,numblePlate);
 		this.type=type;
-		setDailyRental(dailyRental);
-		setNumblePlate(numblePlate);
 	}
 	
 	public String getType() {

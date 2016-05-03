@@ -2,7 +2,12 @@ package cn.edu.qdu.leasing;
 
 public class Motor {
 	private double dailyRental;// 日租金
-	private String numblePlate;
+	private String numblePlate;// 车牌号
+
+	public Motor(double dailyRental, String numblePlate) {
+		this.dailyRental = dailyRental;
+		this.numblePlate = numblePlate;
+	}
 
 	/**
 	 * 计算总租金

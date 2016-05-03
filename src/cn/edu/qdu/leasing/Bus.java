@@ -9,9 +9,8 @@ public class Bus extends Motor {
 	 * @param dailyRental	ÈÕ×â½ğ
 	 */
 	public Bus(String seats,double dailyRental,String numblePlate){
+		super(dailyRental,numblePlate);
 		this.seats=seats;
-		setDailyRental(dailyRental);
-		setNumblePlate(numblePlate);
 	}
 	
 	public String getSeats() {
